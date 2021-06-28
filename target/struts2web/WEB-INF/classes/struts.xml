@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.enable.DynamicMethodInvocation"
+		value="false" />
+	<constant value="global" name="struts.custom.i18n.resources" />
+	<!-- <constant name="struts.ui.templateDir" value="WEB-INF/template"/> -->
+	<package name="default" extends="struts-default" namespace="/">
+
+
+		<!-- If no class attribute is specified the framework will assume success 
+			and render the result index.jsp -->
+		<!-- If no name value for the result node is specified the success value 
+			is the default -->
+		<action name="index">
+			<result>/login.jsp</result>
+		</action>
+
+		<action name="login"
+			class="fr.formation.afpa.actions.LoginAction">
+			<result name="success" type="chain">Liste</result>
+			<result name="login" type="chain">/login.jsp</result>
+		</action>
+		
+				<action name="changelanguage"
+			class="fr.formation.afpa.actions.LoginAction" method="changelanguagemeth">
+			<result name="success" type="redirect">/login.jsp</result>
+		</action>
+		
+		<action name="save"
+			class="fr.formation.afpa.actions.ListCustomerAction" method="save">
+			<result name="success" type="chain">Liste</result>
+		</action>
+
+		<action name="Liste"
+			class="fr.formation.afpa.actions.ListCustomerAction">
+			<result name="success">/WEB-INF/pages/ListeCustomers.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		
+		<action name="ajoutListecustomers"
+			class="fr.formation.afpa.actions.ListCustomerAction">
+			<result name="success">/WEB-INF/pages/AjoutCustomer.jsp</result>
+			<result name="login">/login.jsp</result>
+
+		</action>
+		<action name="editListecustomers"
+			class="fr.formation.afpa.actions.ListCustomerAction" method="findedit">
+			<result name="success">/WEB-INF/pages/EditCustomer.jsp</result>
+						<result name="login">/login.jsp</result>
+
+		</action>
+		<action name="deleteListecustomers"
+			class="fr.formation.afpa.actions.ListCustomerAction" method="delete">
+			<result name="success" type="chain">Liste</result>
+						<result name="login">/login.jsp</result>
+		</action>
+
+		<action name="Logout"
+			class="fr.formation.afpa.actions.LoginAction" method="logout">
+			<result name="success">/login.jsp</result>
+		</action>
+		
+		<action name="changelanguagelogin"
+			class="fr.formation.afpa.actions.LanguageAction" method="displayLogin">
+			<result name="input">/login.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		
+				<action name="changelanguageList"
+			class="fr.formation.afpa.actions.LanguageAction" method="displayList">
+			<result name="input">/WEB-INF/pages/ListeCustomers.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		
+						<action name="changelanguageEdit"
+			class="fr.formation.afpa.actions.LanguageAction" method="displayEdit">
+			<result name="input">/WEB-INF/pages/EditCustomer.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		
+						<action name="changelanguageAdd"
+			class="fr.formation.afpa.actions.LanguageAction" method="displayAdd">
+			<result name="input">/WEB-INF/pages/AjoutCustomer.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		
+		
+
+		<!-- <action name="*Listecustomers" class="fr.formation.afpa.actions.ListCustomerAction"> -->
+		<!-- <result name="ajout">/WEB-INF/pages/AjoutCustomer.jsp</result> -->
+		<!-- <result name="edit">/WEB-INF/pages/EditionCustomer.jsp</result> -->
+		<!-- <result name="delete">/WEB-INF/pages/DeleteCustomer.jsp</result> -->
+		<!-- <result name="success" type="redirectAction">Liste</result> -->
+		<!-- </action> -->
+
+		<!-- <action name="edit" class="org.apache.struts.edit.action.EditAction" 
+			method="input"> <result name="input">/edit.jsp</result> </action> <action 
+			name="save" class="org.apache.struts.edit.action.EditAction" method="execute"> 
+			<result name="input">/edit.jsp</result> <result name="success">/thankyou.jsp</result> 
+			</action> -->
+
+	</package>
+</struts>

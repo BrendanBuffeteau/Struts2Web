@@ -1,0 +1,10 @@
+fr\formation\afpa\controller\DeleteCustomerController.class
+fr\formation\afpa\controller\SaveCustomerController.class
+fr\formation\afpa\actions\LoginAction.class
+fr\formation\afpa\actions\LanguageAction.class
+fr\formation\afpa\controller\ListeCustomerController.class
+fr\formation\afpa\servletfilter\SessionFilter.class
+fr\formation\afpa\controller\Logout.class
+fr\formation\afpa\actions\ListCustomerAction.class
+fr\formation\afpa\controller\UpdateCustomerController.class
+fr\formation\afpa\controller\Logincontroller.class
